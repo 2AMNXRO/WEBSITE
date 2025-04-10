@@ -122,7 +122,7 @@ export default function BookingConfirmation() {
             
             <div>
               <h3 className="text-sm font-medium text-gray-400">Total Cost</h3>
-              <p className="text-lg font-semibold text-red-500">${(booking.hours * 10).toFixed(2)}</p>
+              <p className="text-lg font-semibold text-red-500">$45.00</p>
             </div>
             
             <div className="border-t border-zinc-700 pt-4 mt-4">

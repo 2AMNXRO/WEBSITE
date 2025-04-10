@@ -253,6 +253,30 @@ export default function BookingPage() {
                     
                     <FormField
                       control={form.control}
+                      name="serviceType"
+                      render={({ field }) => (
+                        <FormItem className="mb-4">
+                          <FormLabel className="text-gray-300">Service Type</FormLabel>
+                          <Select 
+                            defaultValue="website" 
+                            onValueChange={field.onChange}
+                          >
+                            <SelectTrigger className="bg-zinc-800 border-zinc-700 text-white">
+                              <SelectValue placeholder="Select a service" />
+                            </SelectTrigger>
+                            <SelectContent className="bg-zinc-900 border-zinc-800 text-white">
+                              <SelectItem value="website" className="hover:bg-zinc-800">Website Development ($25)</SelectItem>
+                              <SelectItem value="app" className="hover:bg-zinc-800">App Development ($35)</SelectItem>
+                              <SelectItem value="custom" className="hover:bg-zinc-800">Custom Development ($45)</SelectItem>
+                            </SelectContent>
+                          </Select>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    
+                    <FormField
+                      control={form.control}
                       name="hours"
                       render={({ field }) => (
                         <FormItem>
@@ -288,7 +312,11 @@ export default function BookingPage() {
                             </Button>
                             
                             <div className="ml-4 text-gray-300">
-                              Total: <span className="font-bold text-red-500">${(field.value * 10).toFixed(2)}</span>
+                              Total: <span className="font-bold text-red-500">
+                                {form.watch("serviceType") === "website" ? "$25.00" :
+                                 form.watch("serviceType") === "app" ? "$35.00" :
+                                 "$45.00"}
+                              </span>
                             </div>
                           </div>
                           <FormMessage />

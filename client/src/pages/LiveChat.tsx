@@ -105,50 +105,54 @@ export default function LiveChat() {
 
   if (isInvalidKey) {
     return (
-      <AlertDialog open={true}>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>Invalid Chat Key</AlertDialogTitle>
-            <AlertDialogDescription>
-              The chat key you provided is invalid or has expired. Please make a booking to get a valid chat key.
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogAction onClick={handleCloseInvalidDialog}>Go to Booking</AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
+      <div className="bg-black min-h-screen flex items-center justify-center">
+        <AlertDialog open={true}>
+          <AlertDialogContent className="bg-zinc-900 border border-zinc-800 text-white">
+            <AlertDialogHeader>
+              <AlertDialogTitle className="text-red-500">Invalid Chat Key</AlertDialogTitle>
+              <AlertDialogDescription className="text-gray-400">
+                The chat key you provided is invalid or has expired. Please make a booking to get a valid chat key.
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogAction onClick={handleCloseInvalidDialog} className="bg-red-600 hover:bg-red-700">
+                Go to Booking
+              </AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
+      </div>
     );
   }
 
   return (
-    <div className="py-12 px-4 max-w-4xl mx-auto">
-      <Card className="h-[80vh] flex flex-col">
-        <CardHeader className="bg-primary text-white">
+    <div className="py-12 px-4 max-w-4xl mx-auto bg-black min-h-screen">
+      <Card className="h-[80vh] flex flex-col bg-zinc-900 border-zinc-800">
+        <CardHeader className="bg-gradient-to-r from-red-700 to-red-600 text-white">
           <div className="flex items-center">
-            <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center mr-3">
+            <div className="w-10 h-10 rounded-full bg-black/20 flex items-center justify-center mr-3">
               <i className="fas fa-headset"></i>
             </div>
             <div>
               <CardTitle>Codenova Support</CardTitle>
-              <CardDescription className="text-white/80">
+              <CardDescription className="text-white/90">
                 {connected ? "Online - Typically replies within minutes" : connecting ? "Connecting..." : "Offline"}
               </CardDescription>
             </div>
           </div>
         </CardHeader>
         
-        <CardContent className="flex-grow overflow-auto p-4 bg-gray-50" ref={chatContainerRef}>
+        <CardContent className="flex-grow overflow-auto p-4 bg-zinc-900 text-gray-300" ref={chatContainerRef}>
           {connecting ? (
             <div className="flex h-full justify-center items-center">
-              <Loader2 className="h-8 w-8 text-primary animate-spin" />
-              <p className="ml-2 text-muted-foreground">Connecting to chat...</p>
+              <Loader2 className="h-8 w-8 text-red-500 animate-spin" />
+              <p className="ml-2 text-gray-400">Connecting to chat...</p>
             </div>
           ) : (
             <>
               {messages.length === 0 ? (
                 <div className="h-full flex items-center justify-center">
-                  <p className="text-muted-foreground">No messages yet. Start the conversation!</p>
+                  <p className="text-gray-500">No messages yet. Start the conversation!</p>
                 </div>
               ) : (
                 messages.map((msg, index) => (
@@ -157,15 +161,15 @@ export default function LiveChat() {
                     className={`flex mb-4 ${msg.sender === 'system' ? 'justify-center' : msg.sender === name ? 'justify-end' : 'justify-start'}`}
                   >
                     {msg.sender === 'system' ? (
-                      <div className="bg-gray-100 rounded-lg py-2 px-4 max-w-[90%] text-center">
-                        <p className="text-sm text-muted-foreground">{msg.message}</p>
+                      <div className="bg-zinc-800 rounded-lg py-2 px-4 max-w-[90%] text-center border border-zinc-700">
+                        <p className="text-sm text-gray-400">{msg.message}</p>
                       </div>
                     ) : (
                       <div 
                         className={`${
                           msg.sender === name 
-                            ? 'bg-primary text-white' 
-                            : 'bg-gray-200 text-gray-800'
+                            ? 'bg-red-600 text-white' 
+                            : 'bg-zinc-800 text-gray-200 border border-zinc-700'
                         } rounded-lg py-2 px-4 max-w-[80%]`}
                       >
                         <p className="text-sm">{msg.message}</p>
@@ -181,7 +185,7 @@ export default function LiveChat() {
           )}
         </CardContent>
         
-        <CardFooter className="p-4 border-t">
+        <CardFooter className="p-4 border-t border-zinc-800 bg-zinc-900">
           <form className="flex w-full" onSubmit={handleSendMessage}>
             <Input
               type="text"
@@ -189,12 +193,12 @@ export default function LiveChat() {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               disabled={!connected}
-              className="flex-1 rounded-r-none"
+              className="flex-1 rounded-r-none bg-zinc-800 border-zinc-700 text-white placeholder:text-gray-500 focus-visible:ring-red-500"
             />
             <Button 
               type="submit" 
               disabled={!connected || !message.trim()} 
-              className="rounded-l-none"
+              className="rounded-l-none bg-red-600 hover:bg-red-700"
             >
               <i className="fas fa-paper-plane"></i>
             </Button>

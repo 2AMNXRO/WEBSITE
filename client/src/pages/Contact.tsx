@@ -127,7 +127,7 @@ export default function Contact() {
             <Form {...form}>
               <form 
                 onSubmit={form.handleSubmit(onSubmit)} 
-                className="bg-gray-50 p-8 rounded-lg shadow-md"
+                className="bg-zinc-900 p-8 rounded-lg shadow-md border border-zinc-800"
               >
                 <div className="grid md:grid-cols-2 gap-6 mb-6">
                   <FormField
@@ -135,11 +135,15 @@ export default function Contact() {
                     name="name"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Your Name</FormLabel>
+                        <FormLabel className="text-white">Your Name</FormLabel>
                         <FormControl>
-                          <Input placeholder="John Doe" {...field} />
+                          <Input 
+                            placeholder="John Doe" 
+                            {...field} 
+                            className="bg-zinc-800 border-zinc-700 text-white placeholder:text-gray-500 focus-visible:ring-red-500"
+                          />
                         </FormControl>
-                        <FormMessage />
+                        <FormMessage className="text-red-500" />
                       </FormItem>
                     )}
                   />
@@ -149,11 +153,15 @@ export default function Contact() {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Email Address</FormLabel>
+                        <FormLabel className="text-white">Email Address</FormLabel>
                         <FormControl>
-                          <Input placeholder="you@example.com" {...field} />
+                          <Input 
+                            placeholder="you@example.com" 
+                            {...field} 
+                            className="bg-zinc-800 border-zinc-700 text-white placeholder:text-gray-500 focus-visible:ring-red-500"
+                          />
                         </FormControl>
-                        <FormMessage />
+                        <FormMessage className="text-red-500" />
                       </FormItem>
                     )}
                   />
@@ -164,11 +172,15 @@ export default function Contact() {
                   name="subject"
                   render={({ field }) => (
                     <FormItem className="mb-6">
-                      <FormLabel>Subject</FormLabel>
+                      <FormLabel className="text-white">Subject</FormLabel>
                       <FormControl>
-                        <Input placeholder="How can we help you?" {...field} />
+                        <Input 
+                          placeholder="How can we help you?" 
+                          {...field} 
+                          className="bg-zinc-800 border-zinc-700 text-white placeholder:text-gray-500 focus-visible:ring-red-500"
+                        />
                       </FormControl>
-                      <FormMessage />
+                      <FormMessage className="text-red-500" />
                     </FormItem>
                   )}
                 />
@@ -178,22 +190,23 @@ export default function Contact() {
                   name="message"
                   render={({ field }) => (
                     <FormItem className="mb-6">
-                      <FormLabel>Message</FormLabel>
+                      <FormLabel className="text-white">Message</FormLabel>
                       <FormControl>
                         <Textarea 
                           placeholder="Tell us more about your project or question..." 
                           rows={5}
                           {...field} 
+                          className="bg-zinc-800 border-zinc-700 text-white placeholder:text-gray-500 focus-visible:ring-red-500 resize-none"
                         />
                       </FormControl>
-                      <FormMessage />
+                      <FormMessage className="text-red-500" />
                     </FormItem>
                   )}
                 />
                 
                 <Button 
                   type="submit" 
-                  className="w-full" 
+                  className="w-full bg-red-600 hover:bg-red-700 text-white" 
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? "Sending..." : "Send Message"}
