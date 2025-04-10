@@ -19,6 +19,7 @@ interface BookingDetails {
   time: string;
   hours: number;
   chatKey: string;
+  serviceType: string;
 }
 
 export default function BookingConfirmation() {
@@ -121,8 +122,17 @@ export default function BookingConfirmation() {
             </div>
             
             <div>
+              <h3 className="text-sm font-medium text-gray-400">Service Type</h3>
+              <p className="text-lg capitalize">{booking.serviceType === "website" ? "Website Development" :
+                booking.serviceType === "app" ? "App Development" : "Custom Development"}</p>
+            </div>
+            
+            <div>
               <h3 className="text-sm font-medium text-gray-400">Total Cost</h3>
-              <p className="text-lg font-semibold text-red-500">$45.00</p>
+              <p className="text-lg font-semibold text-red-500">
+                {booking.serviceType === "website" ? "$25.00" :
+                 booking.serviceType === "app" ? "$35.00" : "$45.00"}
+              </p>
             </div>
             
             <div className="border-t border-zinc-700 pt-4 mt-4">

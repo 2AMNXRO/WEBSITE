@@ -25,6 +25,7 @@ export const bookings = pgTable("bookings", {
   time: text("time").notNull(),
   hours: integer("hours").notNull(),
   projectDetails: text("project_details"),
+  serviceType: text("service_type").default("website"),
   isConfirmed: boolean("is_confirmed").default(false),
   chatKey: text("chat_key").notNull(),
 });

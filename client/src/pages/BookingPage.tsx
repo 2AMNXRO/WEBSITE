@@ -44,6 +44,9 @@ const bookingFormSchema = insertBookingSchema.extend({
   time: z.string().min(1, "Please select a time"),
   hours: z.number().min(1, "Minimum booking is 1 hour").max(8, "Maximum booking is 8 hours"),
   projectDetails: z.string().optional(),
+  serviceType: z.enum(["website", "app", "custom"], {
+    required_error: "Please select a service type",
+  }),
 });
 
 type BookingFormValues = z.infer<typeof bookingFormSchema>;
@@ -76,6 +79,7 @@ export default function BookingPage() {
       time: "",
       hours: 1,
       projectDetails: "",
+      serviceType: "website",
     },
   });
   
