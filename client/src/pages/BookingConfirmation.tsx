@@ -70,18 +70,18 @@ export default function BookingConfirmation() {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center min-h-[70vh]">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+      <div className="flex justify-center items-center min-h-[70vh] bg-black">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-red-500"></div>
       </div>
     );
   }
 
   if (!booking) {
     return (
-      <div className="py-16 px-4 max-w-3xl mx-auto text-center">
-        <h1 className="text-2xl font-bold text-red-600">Booking Not Found</h1>
-        <p className="mt-4 text-muted-foreground">The booking you're looking for doesn't exist or has been removed.</p>
-        <Button className="mt-6" asChild>
+      <div className="py-16 px-4 max-w-3xl mx-auto text-center bg-black min-h-screen">
+        <h1 className="text-2xl font-bold text-red-500">Booking Not Found</h1>
+        <p className="mt-4 text-gray-400">The booking you're looking for doesn't exist or has been removed.</p>
+        <Button className="mt-6 bg-red-600 hover:bg-red-700" asChild>
           <Link href="/booking">Make a New Booking</Link>
         </Button>
       </div>
@@ -89,64 +89,64 @@ export default function BookingConfirmation() {
   }
 
   return (
-    <div className="py-16 px-4 max-w-3xl mx-auto">
-      <Card>
-        <CardHeader className="text-center bg-primary text-white rounded-t-lg">
+    <div className="py-16 px-4 max-w-3xl mx-auto bg-black min-h-screen">
+      <Card className="bg-zinc-900 border-red-900/30">
+        <CardHeader className="text-center bg-gradient-to-r from-red-700 to-red-600 text-white rounded-t-lg">
           <CheckCircle className="h-16 w-16 mx-auto mb-2" />
           <CardTitle className="text-2xl">Booking Confirmed!</CardTitle>
           <CardDescription className="text-white/90">
             Your session has been successfully booked
           </CardDescription>
         </CardHeader>
-        <CardContent className="pt-6">
+        <CardContent className="pt-6 text-gray-300">
           <div className="space-y-4">
             <div>
-              <h3 className="text-sm font-medium text-muted-foreground">Booking Reference</h3>
+              <h3 className="text-sm font-medium text-gray-400">Booking Reference</h3>
               <p className="text-lg font-semibold">#{booking.id}</p>
             </div>
             
             <div>
-              <h3 className="text-sm font-medium text-muted-foreground">Name</h3>
+              <h3 className="text-sm font-medium text-gray-400">Name</h3>
               <p className="text-lg">{booking.name}</p>
             </div>
             
             <div>
-              <h3 className="text-sm font-medium text-muted-foreground">Date & Time</h3>
+              <h3 className="text-sm font-medium text-gray-400">Date & Time</h3>
               <p className="text-lg">{booking.date} at {booking.time}</p>
             </div>
             
             <div>
-              <h3 className="text-sm font-medium text-muted-foreground">Duration</h3>
+              <h3 className="text-sm font-medium text-gray-400">Duration</h3>
               <p className="text-lg">{booking.hours} hour{booking.hours > 1 ? 's' : ''}</p>
             </div>
             
             <div>
-              <h3 className="text-sm font-medium text-muted-foreground">Total Cost</h3>
-              <p className="text-lg font-semibold">${(booking.hours * 10).toFixed(2)}</p>
+              <h3 className="text-sm font-medium text-gray-400">Total Cost</h3>
+              <p className="text-lg font-semibold text-red-500">${(booking.hours * 10).toFixed(2)}</p>
             </div>
             
-            <div className="border-t border-gray-200 pt-4 mt-4">
-              <h3 className="text-sm font-medium text-muted-foreground mb-1">Your Chat Link</h3>
-              <div className="flex items-center justify-between p-3 bg-gray-50 rounded-md">
-                <p className="text-sm text-gray-600 truncate">
+            <div className="border-t border-zinc-700 pt-4 mt-4">
+              <h3 className="text-sm font-medium text-red-500 mb-1">Your Chat Link</h3>
+              <div className="flex items-center justify-between p-3 bg-zinc-800 rounded-md border border-zinc-700">
+                <p className="text-sm text-gray-300 truncate">
                   {window.location.origin}/chat/{booking.chatKey}
                 </p>
-                <Button variant="ghost" size="sm" onClick={copyToClipboard}>
+                <Button variant="ghost" size="sm" onClick={copyToClipboard} className="text-gray-300 hover:bg-zinc-700 hover:text-white">
                   <Copy className="h-4 w-4" />
                   <span className="sr-only">Copy link</span>
                 </Button>
               </div>
-              <p className="text-xs text-muted-foreground mt-2">
+              <p className="text-xs text-gray-400 mt-2">
                 Use this link to access your dedicated chat channel with the developer.
               </p>
             </div>
           </div>
         </CardContent>
-        <CardFooter className="flex flex-col sm:flex-row gap-4">
-          <Button asChild className="flex-1">
+        <CardFooter className="flex flex-col sm:flex-row gap-4 border-t border-zinc-700">
+          <Button asChild className="flex-1 bg-red-600 hover:bg-red-700">
             <Link href={`/chat/${booking.chatKey}`}>Join Chat Now</Link>
           </Button>
-          <Button variant="outline" asChild className="flex-1">
+          <Button variant="outline" asChild className="flex-1 border-zinc-700 text-gray-300 hover:bg-zinc-800 hover:text-white">
             <Link href="/">Return to Homepage</Link>
           </Button>
         </CardFooter>

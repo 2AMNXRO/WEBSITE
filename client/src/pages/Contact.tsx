@@ -60,63 +60,63 @@ export default function Contact() {
   };
   
   return (
-    <section id="contact" className="py-16 bg-white">
+    <section id="contact" className="py-16 bg-black min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h1 className="text-3xl md:text-4xl font-bold text-foreground">Contact Us</h1>
-          <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
+          <h1 className="text-3xl md:text-4xl font-bold text-white">Contact <span className="text-red-500">Us</span></h1>
+          <p className="mt-4 text-lg text-gray-400 max-w-3xl mx-auto">
             Have questions or custom requests? Reach out and we'll get back to you as soon as possible.
           </p>
         </div>
         
         <div className="grid md:grid-cols-5 gap-12">
-          <div className="md:col-span-2 space-y-8">
+          <div className="md:col-span-2 space-y-8 text-gray-300">
             <div>
-              <h3 className="text-xl font-semibold mb-2">Contact Information</h3>
-              <p className="text-muted-foreground">Feel free to reach out via the form or through any of the channels below:</p>
+              <h3 className="text-xl font-semibold mb-2 text-red-500">Contact Information</h3>
+              <p className="text-gray-400">Feel free to reach out via the form or through any of the channels below:</p>
             </div>
             
             <div className="flex items-start space-x-3">
-              <div className="text-primary text-xl mt-1">
+              <div className="text-red-500 text-xl mt-1">
                 <i className="fas fa-envelope"></i>
               </div>
               <div>
-                <h4 className="font-medium">Email</h4>
-                <p className="text-muted-foreground">contact@codenova.dev</p>
+                <h4 className="font-medium text-white">Email</h4>
+                <p className="text-gray-400">contact@codenova.dev</p>
               </div>
             </div>
             
             <div className="flex items-start space-x-3">
-              <div className="text-primary text-xl mt-1">
+              <div className="text-red-500 text-xl mt-1">
                 <i className="fas fa-map-marker-alt"></i>
               </div>
               <div>
-                <h4 className="font-medium">Location</h4>
-                <p className="text-muted-foreground">Remote Services Worldwide</p>
+                <h4 className="font-medium text-white">Location</h4>
+                <p className="text-gray-400">Remote Services Worldwide</p>
               </div>
             </div>
             
             <div className="flex items-start space-x-3">
-              <div className="text-primary text-xl mt-1">
+              <div className="text-red-500 text-xl mt-1">
                 <i className="fas fa-clock"></i>
               </div>
               <div>
-                <h4 className="font-medium">Working Hours</h4>
-                <p className="text-muted-foreground">Monday - Friday: 9 AM - 5 PM</p>
-                <p className="text-muted-foreground">Weekends: By appointment</p>
+                <h4 className="font-medium text-white">Working Hours</h4>
+                <p className="text-gray-400">Monday - Friday: 9 AM - 5 PM</p>
+                <p className="text-gray-400">Weekends: By appointment</p>
               </div>
             </div>
             
             <div className="pt-4">
-              <h4 className="font-medium mb-2">Follow Us</h4>
+              <h4 className="font-medium mb-2 text-white">Follow Us</h4>
               <div className="flex space-x-4">
-                <a href="#" className="text-gray-500 hover:text-primary text-xl">
+                <a href="#" className="text-gray-400 hover:text-red-500 text-xl transition duration-300">
                   <i className="fab fa-twitter"></i>
                 </a>
-                <a href="#" className="text-gray-500 hover:text-primary text-xl">
+                <a href="#" className="text-gray-400 hover:text-red-500 text-xl transition duration-300">
                   <i className="fab fa-linkedin"></i>
                 </a>
-                <a href="#" className="text-gray-500 hover:text-primary text-xl">
+                <a href="#" className="text-gray-400 hover:text-red-500 text-xl transition duration-300">
                   <i className="fab fa-github"></i>
                 </a>
               </div>
