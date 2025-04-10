@@ -129,20 +129,20 @@ export default function BookingPage() {
   };
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h1 className="text-3xl md:text-4xl font-bold text-foreground">Book Your Session</h1>
-          <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
+          <h1 className="text-3xl md:text-4xl font-bold text-white">Book Your <span className="text-red-500">Session</span></h1>
+          <p className="mt-4 text-lg text-gray-400 max-w-3xl mx-auto">
             Select a date and time that works for you. After booking, you'll receive a confirmation email with a link to our live chat.
           </p>
         </div>
         
         <div className="grid md:grid-cols-2 gap-12">
-          <Card>
+          <Card className="bg-zinc-900 border-red-900/30">
             <CardHeader>
-              <CardTitle>Select a Date</CardTitle>
-              <CardDescription>Choose an available date for your booking</CardDescription>
+              <CardTitle className="text-red-500">Select a Date</CardTitle>
+              <CardDescription className="text-gray-400">Choose an available date for your booking</CardDescription>
             </CardHeader>
             <CardContent>
               <Calendar
@@ -161,25 +161,25 @@ export default function BookingPage() {
                     date.getDay() === 0 // Sunday
                   );
                 }}
-                className="rounded-md border"
+                className="rounded-md border border-zinc-700 bg-black/40"
               />
             </CardContent>
           </Card>
           
           <div>
-            <Card>
+            <Card className="bg-zinc-900 border-red-900/30">
               <CardHeader>
-                <CardTitle>Complete Your Booking</CardTitle>
-                <CardDescription>Provide your details to confirm the booking</CardDescription>
+                <CardTitle className="text-red-500">Complete Your Booking</CardTitle>
+                <CardDescription className="text-gray-400">Provide your details to confirm the booking</CardDescription>
               </CardHeader>
               <CardContent>
                 {selectedDate && (
-                  <Alert className="mb-6 bg-blue-50 border-blue-200">
-                    <AlertCircle className="h-4 w-4 text-blue-800" />
-                    <AlertTitle className="text-blue-800 text-sm font-medium">
+                  <Alert className="mb-6 bg-red-950/20 border-red-900">
+                    <AlertCircle className="h-4 w-4 text-red-500" />
+                    <AlertTitle className="text-red-500 text-sm font-medium">
                       Selected Date
                     </AlertTitle>
-                    <AlertDescription className="text-blue-800 text-sm">
+                    <AlertDescription className="text-gray-200 text-sm">
                       {format(selectedDate, "MMMM d, yyyy")}
                     </AlertDescription>
                   </Alert>
@@ -187,14 +187,14 @@ export default function BookingPage() {
                 
                 {/* Time Slots */}
                 <div className="mb-6">
-                  <h3 className="text-sm font-medium mb-2">Select Time Slot</h3>
+                  <h3 className="text-sm font-medium mb-2 text-gray-300">Select Time Slot</h3>
                   <div className="grid grid-cols-3 gap-2">
                     {timeSlots.map((time) => (
                       <Button
                         key={time}
                         type="button"
                         variant={selectedTimeSlot === time ? "default" : "outline"}
-                        className="text-sm h-9"
+                        className={`text-sm h-9 ${selectedTimeSlot === time ? "" : "bg-zinc-800 border-zinc-700 text-gray-300 hover:bg-zinc-700 hover:text-white"}`}
                         onClick={() => handleTimeSelect(time)}
                       >
                         {time}
@@ -210,9 +210,9 @@ export default function BookingPage() {
                       name="name"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Your Name</FormLabel>
+                          <FormLabel className="text-gray-300">Your Name</FormLabel>
                           <FormControl>
-                            <Input placeholder="John Doe" {...field} />
+                            <Input placeholder="John Doe" {...field} className="bg-zinc-800 border-zinc-700 text-white" />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -224,9 +224,9 @@ export default function BookingPage() {
                       name="email"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Email Address</FormLabel>
+                          <FormLabel className="text-gray-300">Email Address</FormLabel>
                           <FormControl>
-                            <Input placeholder="you@example.com" {...field} />
+                            <Input placeholder="you@example.com" {...field} className="bg-zinc-800 border-zinc-700 text-white" />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -238,11 +238,11 @@ export default function BookingPage() {
                       name="projectDetails"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Project Details</FormLabel>
+                          <FormLabel className="text-gray-300">Project Details</FormLabel>
                           <FormControl>
                             <Textarea 
                               placeholder="Tell us about your project" 
-                              className="resize-none" 
+                              className="resize-none bg-zinc-800 border-zinc-700 text-white" 
                               {...field} 
                             />
                           </FormControl>
@@ -256,7 +256,7 @@ export default function BookingPage() {
                       name="hours"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Number of Hours</FormLabel>
+                          <FormLabel className="text-gray-300">Number of Hours</FormLabel>
                           <div className="flex items-center">
                             <Button 
                               type="button" 
@@ -264,7 +264,7 @@ export default function BookingPage() {
                               size="icon"
                               onClick={() => adjustHours(false)}
                               disabled={field.value <= 1}
-                              className="rounded-r-none"
+                              className="rounded-r-none bg-zinc-800 border-zinc-700 text-white hover:bg-zinc-700"
                             >
                               -
                             </Button>
@@ -272,7 +272,7 @@ export default function BookingPage() {
                               type="number"
                               min={1}
                               max={8}
-                              className="w-16 text-center rounded-none"
+                              className="w-16 text-center rounded-none bg-zinc-800 border-zinc-700 text-white"
                               {...field}
                               onChange={(e) => field.onChange(parseInt(e.target.value))}
                             />
@@ -282,13 +282,13 @@ export default function BookingPage() {
                               size="icon"
                               onClick={() => adjustHours(true)}
                               disabled={field.value >= 8}
-                              className="rounded-l-none"
+                              className="rounded-l-none bg-zinc-800 border-zinc-700 text-white hover:bg-zinc-700"
                             >
                               +
                             </Button>
                             
-                            <div className="ml-4 text-muted-foreground">
-                              Total: <span className="font-bold text-primary">${(field.value * 10).toFixed(2)}</span>
+                            <div className="ml-4 text-gray-300">
+                              Total: <span className="font-bold text-red-500">${(field.value * 10).toFixed(2)}</span>
                             </div>
                           </div>
                           <FormMessage />
@@ -298,7 +298,7 @@ export default function BookingPage() {
                     
                     <Button 
                       type="submit" 
-                      className="w-full" 
+                      className="w-full bg-red-600 hover:bg-red-700" 
                       disabled={isSubmitting}
                     >
                       {isSubmitting ? "Processing..." : "Confirm Booking"}
