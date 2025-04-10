@@ -118,17 +118,17 @@ export default function Home() {
       </section>
 
       {/* Live Chat Preview */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-zinc-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground">Live Chat Preview</h2>
-            <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-white">Live <span className="text-red-500">Chat</span> Preview</h2>
+            <p className="mt-4 text-lg text-gray-400 max-w-3xl mx-auto">
               After booking, you'll have access to our live chat interface for direct communication about your project.
             </p>
           </div>
           
           <div className="max-w-3xl mx-auto">
-            <div className="bg-white rounded-xl shadow-xl overflow-hidden">
+            <div className="bg-zinc-800 rounded-xl shadow-xl overflow-hidden border border-red-900/30">
               {/* Chat Header */}
               <div className="bg-primary text-white p-4 flex items-center">
                 <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center mr-3">
@@ -141,11 +141,11 @@ export default function Home() {
               </div>
               
               {/* Chat Messages */}
-              <div className="p-4 h-80 overflow-y-auto bg-gray-50">
+              <div className="p-4 h-80 overflow-y-auto bg-black/40">
                 <div className="flex justify-start mb-4">
-                  <div className="bg-gray-200 rounded-lg py-2 px-4 max-w-[80%]">
+                  <div className="bg-zinc-700 text-gray-200 rounded-lg py-2 px-4 max-w-[80%]">
                     <p className="text-sm">Hello! Welcome to Codenova support. How can I help with your project today?</p>
-                    <p className="text-xs text-gray-500 mt-1">10:30 AM</p>
+                    <p className="text-xs text-gray-400 mt-1">10:30 AM</p>
                   </div>
                 </div>
                 
@@ -157,9 +157,9 @@ export default function Home() {
                 </div>
                 
                 <div className="flex justify-start mb-4">
-                  <div className="bg-gray-200 rounded-lg py-2 px-4 max-w-[80%]">
+                  <div className="bg-zinc-700 text-gray-200 rounded-lg py-2 px-4 max-w-[80%]">
                     <p className="text-sm">That's great! I'd be happy to help you create an e-commerce site. Could you share more details about your business and what specific features you're looking for?</p>
-                    <p className="text-xs text-gray-500 mt-1">10:34 AM</p>
+                    <p className="text-xs text-gray-400 mt-1">10:34 AM</p>
                   </div>
                 </div>
                 
@@ -172,12 +172,12 @@ export default function Home() {
               </div>
               
               {/* Chat Input */}
-              <div className="p-4 border-t">
+              <div className="p-4 border-t border-zinc-700">
                 <div className="flex">
                   <input 
                     type="text" 
                     placeholder="Type your message..." 
-                    className="flex-1 px-4 py-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-primary" 
+                    className="flex-1 px-4 py-2 border border-zinc-600 bg-zinc-800 text-white rounded-l-lg focus:outline-none focus:ring-2 focus:ring-primary" 
                     disabled
                   />
                   <button 
@@ -187,7 +187,7 @@ export default function Home() {
                     <i className="fas fa-paper-plane"></i>
                   </button>
                 </div>
-                <p className="text-xs text-gray-500 mt-2 text-center">
+                <p className="text-xs text-gray-400 mt-2 text-center">
                   Chat access will be enabled after your booking is confirmed
                 </p>
               </div>

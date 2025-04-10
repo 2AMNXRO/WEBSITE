@@ -45,13 +45,14 @@ export default function Navbar() {
   };
 
   return (
-    <nav className={`sticky top-0 z-50 w-full bg-white ${isScrolled ? 'shadow-sm' : ''} transition-shadow duration-300`}>
+    <nav className={`sticky top-0 z-50 w-full bg-black ${isScrolled ? 'shadow-md shadow-red-900/20' : ''} transition-shadow duration-300`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex-shrink-0 flex items-center">
-            <Link href="/" className="text-primary font-bold text-xl flex items-center">
-              <i className="fas fa-code mr-2 text-purple-500"></i>
-              Codenova
+            <Link href="/" className="font-bold text-xl flex items-center">
+              <i className="fas fa-code mr-2 text-red-500"></i>
+              <span className="bg-gradient-to-r from-red-600 to-red-500 bg-clip-text text-transparent">Code</span>
+              <span className="text-white">nova</span>
             </Link>
           </div>
           
@@ -63,8 +64,8 @@ export default function Navbar() {
                 onClick={() => handleNavClick(link.path)}
                 className={`px-3 py-2 text-sm font-medium ${
                   location === link.path || (location === '/' && link.path === '/')
-                    ? 'text-primary' 
-                    : 'text-gray-800 hover:text-primary'
+                    ? 'text-red-500' 
+                    : 'text-gray-300 hover:text-red-400'
                 } transition-colors duration-200`}
               >
                 {link.name}
@@ -75,12 +76,12 @@ export default function Navbar() {
           <div className="md:hidden">
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon">
+                <Button variant="ghost" size="icon" className="text-white hover:bg-red-900/20">
                   <Menu className="h-6 w-6" />
                   <span className="sr-only">Open menu</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right">
+              <SheetContent side="right" className="border-zinc-800 bg-zinc-900">
                 <div className="flex flex-col space-y-3 mt-6">
                   {navLinks.map((link) => (
                     <Link
@@ -89,8 +90,8 @@ export default function Navbar() {
                       onClick={() => handleNavClick(link.path)}
                       className={`px-3 py-2.5 text-base font-medium ${
                         location === link.path || (location === '/' && link.path === '/')
-                          ? 'text-primary'
-                          : 'text-gray-800 hover:text-primary'
+                          ? 'text-red-500'
+                          : 'text-gray-300 hover:text-red-400'
                       }`}
                     >
                       {link.name}
