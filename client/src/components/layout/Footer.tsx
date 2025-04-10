@@ -2,72 +2,127 @@ import { Link } from "wouter";
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white py-12 border-t border-red-900/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-4 gap-8">
-          <div className="md:col-span-1">
-            <Link href="/" className="font-bold text-xl flex items-center">
-              <i className="fas fa-code mr-2 text-red-500"></i>
-              <span className="bg-gradient-to-r from-red-600 to-red-500 bg-clip-text text-transparent">Code</span>
-              <span className="text-white">nova</span>
+    <footer className="bg-zinc-950 text-white py-20 relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_90%,rgba(220,38,38,0.06),transparent_25%)]"></div>
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-red-900/40 to-transparent"></div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid md:grid-cols-12 gap-8 lg:gap-12">
+          <div className="md:col-span-4">
+            <Link href="/" className="inline-block">
+              <div className="flex items-center">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center mr-3 shadow-lg shadow-red-900/30">
+                  <i className="fas fa-code text-white text-lg"></i>
+                </div>
+                <div>
+                  <span className="bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent font-bold text-2xl">Code</span>
+                  <span className="text-white font-bold text-2xl">nova</span>
+                </div>
+              </div>
             </Link>
-            <p className="mt-4 text-gray-400">
-              Professional website and coding services at just $10/hour.
-            </p>
-          </div>
-          
-          <div>
-            <h4 className="text-lg font-semibold mb-4 text-red-500">Quick Links</h4>
-            <ul className="space-y-2">
-              <li><Link href="/" className="text-gray-400 hover:text-red-400 transition duration-300">Home</Link></li>
-              <li><Link href="/#services" className="text-gray-400 hover:text-red-400 transition duration-300">Services</Link></li>
-              <li><Link href="/booking" className="text-gray-400 hover:text-red-400 transition duration-300">Book Now</Link></li>
-              <li><Link href="/about" className="text-gray-400 hover:text-red-400 transition duration-300">About</Link></li>
-              <li><Link href="/contact" className="text-gray-400 hover:text-red-400 transition duration-300">Contact</Link></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="text-lg font-semibold mb-4 text-red-500">Services</h4>
-            <ul className="space-y-2">
-              <li><Link href="/#services" className="text-gray-400 hover:text-red-400 transition duration-300">Website Development</Link></li>
-              <li><Link href="/#services" className="text-gray-400 hover:text-red-400 transition duration-300">App Development</Link></li>
-              <li><Link href="/#services" className="text-gray-400 hover:text-red-400 transition duration-300">Custom Coding</Link></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="text-lg font-semibold mb-4 text-red-500">Contact</h4>
-            <ul className="space-y-2">
-              <li className="flex items-center text-gray-400">
-                <i className="fas fa-envelope mr-2 text-red-500"></i>
-                contact@codenova.dev
-              </li>
-              <li className="flex items-center text-gray-400">
-                <i className="fas fa-map-marker-alt mr-2 text-red-500"></i>
-                Remote Services
-              </li>
-            </ul>
             
-            <div className="mt-6">
-              <h5 className="text-sm font-semibold mb-2 text-gray-300">Follow Us</h5>
-              <div className="flex space-x-4">
-                <a href="#" className="text-gray-400 hover:text-red-400">
-                  <i className="fab fa-twitter"></i>
-                </a>
-                <a href="#" className="text-gray-400 hover:text-red-400">
-                  <i className="fab fa-linkedin"></i>
-                </a>
-                <a href="#" className="text-gray-400 hover:text-red-400">
-                  <i className="fab fa-github"></i>
-                </a>
+            <p className="mt-5 text-gray-400 leading-relaxed">
+              Professional website and coding services with transparent pricing. Get quality development work at competitive rates.
+            </p>
+            
+            <div className="mt-6 flex space-x-4">
+              <a href="#" className="w-10 h-10 rounded-full bg-zinc-900 hover:bg-red-900/30 flex items-center justify-center text-gray-400 hover:text-white transition-colors duration-200">
+                <i className="fab fa-twitter"></i>
+              </a>
+              <a href="#" className="w-10 h-10 rounded-full bg-zinc-900 hover:bg-red-900/30 flex items-center justify-center text-gray-400 hover:text-white transition-colors duration-200">
+                <i className="fab fa-linkedin"></i>
+              </a>
+              <a href="#" className="w-10 h-10 rounded-full bg-zinc-900 hover:bg-red-900/30 flex items-center justify-center text-gray-400 hover:text-white transition-colors duration-200">
+                <i className="fab fa-github"></i>
+              </a>
+            </div>
+          </div>
+          
+          <div className="md:col-span-2 md:ml-auto">
+            <h4 className="text-lg font-semibold mb-5 text-white relative inline-block">
+              <span className="relative z-10">Quick Links</span>
+              <span className="absolute bottom-0 left-0 w-full h-1 bg-red-600/70 -z-10"></span>
+            </h4>
+            <ul className="space-y-3">
+              <li><Link href="/" className="text-gray-400 hover:text-white transition duration-200 flex items-center"><span className="w-1.5 h-1.5 bg-red-500 rounded-full mr-2 opacity-60"></span>Home</Link></li>
+              <li><Link href="/#services" className="text-gray-400 hover:text-white transition duration-200 flex items-center"><span className="w-1.5 h-1.5 bg-red-500 rounded-full mr-2 opacity-60"></span>Services</Link></li>
+              <li><Link href="/booking" className="text-gray-400 hover:text-white transition duration-200 flex items-center"><span className="w-1.5 h-1.5 bg-red-500 rounded-full mr-2 opacity-60"></span>Book Now</Link></li>
+              <li><Link href="/about" className="text-gray-400 hover:text-white transition duration-200 flex items-center"><span className="w-1.5 h-1.5 bg-red-500 rounded-full mr-2 opacity-60"></span>About</Link></li>
+              <li><Link href="/contact" className="text-gray-400 hover:text-white transition duration-200 flex items-center"><span className="w-1.5 h-1.5 bg-red-500 rounded-full mr-2 opacity-60"></span>Contact</Link></li>
+            </ul>
+          </div>
+          
+          <div className="md:col-span-2">
+            <h4 className="text-lg font-semibold mb-5 text-white relative inline-block">
+              <span className="relative z-10">Services</span>
+              <span className="absolute bottom-0 left-0 w-full h-1 bg-red-600/70 -z-10"></span>
+            </h4>
+            <ul className="space-y-3">
+              <li className="flex items-center text-gray-400 hover:text-white transition duration-200">
+                <span className="w-1.5 h-1.5 bg-red-500 rounded-full mr-2 opacity-60"></span>
+                <Link href="/#services">Website Development</Link>
+                <span className="ml-2 text-red-500 text-xs">$25</span>
+              </li>
+              <li className="flex items-center text-gray-400 hover:text-white transition duration-200">
+                <span className="w-1.5 h-1.5 bg-red-500 rounded-full mr-2 opacity-60"></span>
+                <Link href="/#services">App Development</Link>
+                <span className="ml-2 text-red-500 text-xs">$35</span>
+              </li>
+              <li className="flex items-center text-gray-400 hover:text-white transition duration-200">
+                <span className="w-1.5 h-1.5 bg-red-500 rounded-full mr-2 opacity-60"></span>
+                <Link href="/#services">Custom Development</Link>
+                <span className="ml-2 text-red-500 text-xs">$45</span>
+              </li>
+            </ul>
+          </div>
+          
+          <div className="md:col-span-4">
+            <h4 className="text-lg font-semibold mb-5 text-white relative inline-block">
+              <span className="relative z-10">Contact Us</span>
+              <span className="absolute bottom-0 left-0 w-full h-1 bg-red-600/70 -z-10"></span>
+            </h4>
+            
+            <div className="bg-zinc-900/80 p-6 rounded-xl border border-zinc-800 shadow-md">
+              <div className="flex items-center text-gray-300 mb-4">
+                <div className="w-10 h-10 rounded-full bg-red-900/20 flex items-center justify-center mr-3 text-red-500">
+                  <i className="fas fa-envelope"></i>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-500">Email us at</p>
+                  <p>contact@codenova.dev</p>
+                </div>
+              </div>
+              
+              <div className="flex items-center text-gray-300">
+                <div className="w-10 h-10 rounded-full bg-red-900/20 flex items-center justify-center mr-3 text-red-500">
+                  <i className="fas fa-map-marker-alt"></i>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-500">Based in</p>
+                  <p>Remote Services Worldwide</p>
+                </div>
+              </div>
+              
+              <div className="mt-5 pt-5 border-t border-zinc-800/60">
+                <Link href="/contact" className="text-red-500 hover:text-red-400 font-medium flex items-center justify-center">
+                  Send us a message
+                  <i className="fas fa-arrow-right ml-2 text-sm"></i>
+                </Link>
               </div>
             </div>
           </div>
         </div>
         
-        <div className="mt-12 pt-8 border-t border-red-900/20 text-center text-gray-400 text-sm">
+        <div className="mt-16 pt-8 border-t border-zinc-800/50 flex flex-col md:flex-row justify-between items-center text-gray-500 text-sm">
           <p>&copy; {new Date().getFullYear()} Codenova. All rights reserved.</p>
+          
+          <div className="mt-4 md:mt-0">
+            <div className="flex space-x-6">
+              <Link href="#" className="hover:text-red-400 transition duration-200">Privacy Policy</Link>
+              <Link href="#" className="hover:text-red-400 transition duration-200">Terms of Service</Link>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
