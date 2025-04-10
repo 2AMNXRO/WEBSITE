@@ -42,22 +42,22 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section id="home" className="bg-gradient-to-br from-blue-500 to-purple-500 text-white">
+      <section id="home" className="bg-gradient-to-br from-black to-red-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-                Welcome to Codenova
+                Welcome to <span className="bg-gradient-to-r from-red-600 to-red-500 bg-clip-text text-transparent">Codenova</span>
               </h1>
               <p className="text-xl md:text-2xl mt-4 font-light">
-                Affordable Website & Coding Services at <span className="font-bold">$10 per Hour</span>
+                Affordable Website & Coding Services at <span className="font-bold text-red-500">$10 per Hour</span>
               </p>
-              <p className="mt-6 text-lg text-gray-100">
+              <p className="mt-6 text-lg text-gray-300">
                 Professional development services at a fraction of the cost. Get your project started today with expert guidance and implementation.
               </p>
               <div className="mt-8">
                 <Link href="/booking">
-                  <Button size="lg" className="bg-white text-primary hover:bg-gray-100 font-semibold px-8 py-6">
+                  <Button size="lg" className="bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-6">
                     Book your session now and get started!
                   </Button>
                 </Link>
@@ -67,7 +67,7 @@ export default function Home() {
               <img 
                 src="https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=600&q=80" 
                 alt="Person coding on laptop" 
-                className="rounded-lg shadow-2xl" 
+                className="rounded-lg shadow-2xl border-2 border-red-500/20" 
               />
             </div>
           </div>
@@ -80,11 +80,11 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-16 bg-background">
+      <section id="services" className="py-16 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground">Our Services</h2>
-            <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-white">Our <span className="text-red-500">Services</span></h2>
+            <p className="mt-4 text-lg text-gray-400 max-w-3xl mx-auto">
               Codenova offers professional website and app development at just $10/hour. 
               Our expertise allows us to deliver high-quality results without the premium price tag.
             </p>
@@ -92,16 +92,16 @@ export default function Home() {
           
           <div className="grid md:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <div key={index} className="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition duration-300">
-                <div className="text-purple-500 text-4xl mb-4">
+              <div key={index} className="bg-zinc-900 p-8 rounded-lg shadow-md hover:shadow-lg transition duration-300 border border-red-900/30">
+                <div className="text-red-500 text-4xl mb-4">
                   <i className={service.icon}></i>
                 </div>
-                <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-                <p className="text-gray-600">
+                <h3 className="text-xl font-semibold mb-2 text-white">{service.title}</h3>
+                <p className="text-gray-400">
                   {service.description}
                 </p>
-                <div className="mt-6 pt-6 border-t border-gray-100">
-                  <p className="font-bold text-primary">{service.price.split('/')[0]}<span className="text-sm font-normal text-gray-500">/hour</span></p>
+                <div className="mt-6 pt-6 border-t border-zinc-800">
+                  <p className="font-bold text-primary">{service.price.split('/')[0]}<span className="text-sm font-normal text-gray-400">/hour</span></p>
                 </div>
               </div>
             ))}
